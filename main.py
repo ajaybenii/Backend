@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "https://lucid-bartik-ad8c8c.netlify.app",
+   "https://festive-mestorf-5be2b0.netlify.app",
 ]
 
 

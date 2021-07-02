@@ -2,6 +2,7 @@ import motor.motor_asyncio
 
 from model import Todo
 
+
 client = motor.motor_asyncio.AsyncIOMotorClient(
     'mongodb+srv://todo123:ajay@cluster0.gwycp.mongodb.net/test')
 database = client.TodoList

@@ -10,6 +10,8 @@ from database import (
     remove_todo,
 )
 
+# an HTTP-specific exception class  to generate exception information
+
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -17,6 +19,9 @@ origins = [
    "https://festive-mestorf-5be2b0.netlify.app",
 ]
 
+# what is a middleware? 
+# software that acts as a bridge between an operating system-
+# or database and applications, especially on a network.
 
 
 app.add_middleware(
@@ -31,10 +36,12 @@ app.add_middleware(
 async def read_root():
     return {"Hello": "World"}
 
+
 @app.get("/api/todo")
 async def get_todo():
     response = await fetch_all_todos()
     return response
+
 
 @app.get("/api/todo/{title}", response_model=Todo)
 async def get_todo_by_title(title):
@@ -43,6 +50,7 @@ async def get_todo_by_title(title):
         return response
     raise HTTPException(404, f"There is no todo with the title {title}")
 
+
 @app.post("/api/todo/", response_model=Todo)
 async def post_todo(todo: Todo):
     response = await create_todo(todo.dict())
@@ -50,12 +58,14 @@ async def post_todo(todo: Todo):
         return response
     raise HTTPException(400, "Something went wrong")
 
+
 @app.put("/api/todo/{title}/", response_model=Todo)
 async def put_todo(title: str, desc: str):
     response = await update_todo(title, desc)
     if response:
         return response
     raise HTTPException(404, f"There is no todo with the title {title}")
+
 
 @app.delete("/api/todo/{title}")
 async def delete_todo(title):

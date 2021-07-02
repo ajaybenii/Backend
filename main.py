@@ -23,7 +23,6 @@ origins = [
 # software that acts as a bridge between an operating system-
 # or database and applications, especially on a network.
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

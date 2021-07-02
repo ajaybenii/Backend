@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from model import Todo
 
 from database import (
@@ -12,7 +14,6 @@ from database import (
 
 # an HTTP-specific exception class  to generate exception information
 
-from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [

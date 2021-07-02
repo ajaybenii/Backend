@@ -12,8 +12,6 @@ from database import (
     remove_todo,
 )
 
-# an HTTP-specific exception class  to generate exception information
-
 app = FastAPI()
 
 origins = [

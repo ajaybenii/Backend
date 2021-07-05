@@ -1,10 +1,14 @@
+import os
+
 import motor.motor_asyncio
 
 from model import Todo
 
+from dotenv import load_dotenv
 
-client = motor.motor_asyncio.AsyncIOMotorClient(
-    'mongodb+srv://todo123:ajay@cluster0.gwycp.mongodb.net/test')
+load_dotenv()
+
+client = motor.motor_asyncio.AsyncIOMotorClient(os.environ["MongoURI"])
 database = client.TodoList
 collection = database.todo
 

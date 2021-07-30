@@ -3,7 +3,6 @@ import os
 import motor.motor_asyncio
 
 from model import Todo
-
 from dotenv import load_dotenv
 
 load_dotenv()
